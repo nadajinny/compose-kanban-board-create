@@ -47,9 +47,7 @@ private class TaskCardProvider : PreviewParameterProvider<TaskCard> {
 
 @Preview(showBackground = true)
 @Composable
-fun TaskCardPreview(
-    @PreviewParameter(TaskCardProvider::class) taskCard: TaskCard,
-) {
+fun TaskCardPreview(@PreviewParameter(TaskCardProvider::class) taskCard: TaskCard) {
     MaterialTheme {
         TaskCardSection(taskCard = taskCard)
     }
@@ -68,5 +66,3 @@ fun App() {
         }
     }
 }
-
-

@@ -31,5 +31,4 @@ class DescriptionSectionTest {
         val descriptionNode = onNodeWithText("2", substring = true)
         descriptionNode.assertIsDisplayed()
     }
-
 }

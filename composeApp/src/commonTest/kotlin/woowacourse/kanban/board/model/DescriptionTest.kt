@@ -1,8 +1,8 @@
 package woowacourse.kanban.board.model
 
 import kotlin.test.Test
-import kotlin.test.assertTrue
 import kotlin.test.assertIs
+import kotlin.test.assertTrue
 
 class DescriptionTest {
     @Test

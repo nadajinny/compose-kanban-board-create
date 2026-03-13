@@ -30,12 +30,7 @@ fun TaskCardSection(taskCard: TaskCard) {
 }
 
 @Composable
-fun TaskCardSection(
-    title: Title,
-    description: Description,
-    tagGroup: TagGroup,
-    assignee: Assignee,
-) {
+fun TaskCardSection(title: Title, description: Description, tagGroup: TagGroup, assignee: Assignee) {
     Box(
         modifier = Modifier.border(
             border = BorderStroke(1.dp, Color.LightGray),

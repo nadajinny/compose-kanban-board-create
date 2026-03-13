@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -23,13 +22,8 @@ import woowacourse.kanban.board.design.Font
 import woowacourse.kanban.board.model.Assignee
 import woowacourse.kanban.board.ui.AssigneeSection
 
-
 @Composable
-fun AssigneeInputSection(
-    assignees: List<Assignee>,
-    selected: Assignee,
-    onSelect: (Assignee) -> Unit,
-) {
+fun AssigneeInputSection(assignees: List<Assignee>, selected: Assignee, onSelect: (Assignee) -> Unit) {
     Column {
         Text(
             text = "담당자 *",
@@ -40,7 +34,7 @@ fun AssigneeInputSection(
         AssigneeField(
             assignees = assignees,
             selected = selected,
-            onSelect = onSelect
+            onSelect = onSelect,
         )
     }
 }
@@ -50,7 +44,7 @@ fun AssigneeInputSection(
 private fun AssigneeInputSectionPreview() {
     val assignees = listOf(
         Assignee("다이노"),
-        Assignee("페임스")
+        Assignee("페임스"),
     )
     MaterialTheme {
         AssigneeInputSection(
@@ -62,38 +56,34 @@ private fun AssigneeInputSectionPreview() {
 }
 
 @Composable
-fun AssigneeField(
-    assignees: List<Assignee>,
-    selected: Assignee,
-    onSelect: (Assignee) -> Unit,
-) {
+fun AssigneeField(assignees: List<Assignee>, selected: Assignee, onSelect: (Assignee) -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(12.dp)
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         assignees.forEach { assignee ->
             val isSelected = assignee == selected
             val borderColor = if (isSelected) Color(0xFF615FFF) else Color(0xFFE5E7EB)
-            val backgroundColor = if(isSelected) Color(0xFFEEF2FF) else Color(0xFFFFFFFF)
+            val backgroundColor = if (isSelected) Color(0xFFEEF2FF) else Color(0xFFFFFFFF)
             Box(
                 modifier = Modifier
                     .weight(1f)
                     .border(
                         width = 2.dp,
                         color = borderColor,
-                        shape = RoundedCornerShape(10.dp)
+                        shape = RoundedCornerShape(10.dp),
                     )
                     .background(
-                        color = backgroundColor
+                        color = backgroundColor,
                     )
                     .clickable { onSelect(assignee) }
-                    .padding(4.dp)
+                    .padding(4.dp),
             ) {
                 AssigneeSection(assignee)
             }
         }
         Spacer(
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
         )
     }
 }
