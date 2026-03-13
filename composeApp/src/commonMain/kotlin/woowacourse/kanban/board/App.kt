@@ -1,15 +1,10 @@
 package woowacourse.kanban.board
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
-import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.model.Tag
 import woowacourse.kanban.board.model.TaskCard
 import woowacourse.kanban.board.ui.TaskCardSection
@@ -53,7 +48,6 @@ fun TaskCardPreview(@PreviewParameter(TaskCardProvider::class) taskCard: TaskCar
         TaskCardSection(taskCard = taskCard)
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
