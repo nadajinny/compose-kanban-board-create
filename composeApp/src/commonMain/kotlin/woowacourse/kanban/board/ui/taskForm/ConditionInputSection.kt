@@ -56,12 +56,12 @@ fun ConditionField() {
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Condition.entries.forEach {
-            val borderColor = remember (selectedCondition) {
-                if(selectedCondition == it) ColorPalette.ConditionSelectedBorder
+            val borderColor = remember(selectedCondition) {
+                if (selectedCondition == it) ColorPalette.ConditionSelectedBorder
                 else ColorPalette.ConditionUnSelectedBorder
             }
-            val backgroundColor = remember (selectedCondition) {
-                if(selectedCondition == it) ColorPalette.ConditionSelectedBackground
+            val backgroundColor = remember(selectedCondition) {
+                if (selectedCondition == it) ColorPalette.ConditionSelectedBackground
                 else ColorPalette.ConditionUnSelectedBackground
             }
             val textColor = if (selectedCondition == it) Color(0xFF1447E6) else Color(0xFF364153)
