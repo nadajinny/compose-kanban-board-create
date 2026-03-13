@@ -16,8 +16,7 @@ class TagGroupTest {
         )
         val tagGroup = TagGroup(tags)
         assertIs<TagGroup>(tagGroup)
-        val items = tagGroup as TagGroup
-        assert(items.tags.size == 5)
+        assert(tagGroup.tags.size == 5)
     }
 
     @Test
