@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.model.Tag
 import woowacourse.kanban.board.model.TaskCard
 import woowacourse.kanban.board.ui.TaskCardSection
+import woowacourse.kanban.board.ui.taskForm.TaskCreateSection
 
 private class TaskCardProvider : PreviewParameterProvider<TaskCard> {
     override val values: Sequence<TaskCard> = sequenceOf(
@@ -53,16 +54,21 @@ fun TaskCardPreview(@PreviewParameter(TaskCardProvider::class) taskCard: TaskCar
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
 fun App() {
-    FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(15.dp),
-        verticalArrangement = Arrangement.spacedBy(15.dp),
-        modifier = Modifier.padding(20.dp),
-    ) {
-        TaskCardProvider().values.forEach { taskCard ->
-            TaskCardSection(taskCard = taskCard)
-        }
+//    FlowRow(
+//        horizontalArrangement = Arrangement.spacedBy(15.dp),
+//        verticalArrangement = Arrangement.spacedBy(15.dp),
+//        modifier = Modifier.padding(20.dp),
+//    ) {
+//        TaskCardProvider().values.forEach { taskCard ->
+//            TaskCardSection(taskCard = taskCard)
+//        }
+//    }
+
+    MaterialTheme {
+        TaskCreateSection()
     }
 }
