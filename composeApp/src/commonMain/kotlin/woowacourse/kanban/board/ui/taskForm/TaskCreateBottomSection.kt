@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import woowacourse.kanban.board.design.ColorPalette
 
 @Preview(showBackground = true)
 @Composable
@@ -51,7 +52,7 @@ fun TaskCreateBottomSection(isCreateEnabled: Boolean = true) {
                 enabled = isCreateEnabled,
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF4F39F6),
+                    containerColor = ColorPalette.ActiveButton,
                 ),
             ) {
                 Text("생성")

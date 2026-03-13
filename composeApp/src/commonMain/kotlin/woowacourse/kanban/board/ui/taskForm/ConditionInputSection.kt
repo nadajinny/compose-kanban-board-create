@@ -18,7 +18,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -64,7 +63,10 @@ fun ConditionField() {
                 if (selectedCondition == it) ColorPalette.ConditionSelectedBackground
                 else ColorPalette.ConditionUnSelectedBackground
             }
-            val textColor = if (selectedCondition == it) Color(0xFF1447E6) else Color(0xFF364153)
+            val textColor = remember(selectedCondition) {
+                if (selectedCondition == it) ColorPalette.ConditionSelectedText
+                else ColorPalette.ConditionUnselectedText
+            }
             Box(
                 modifier = Modifier
                     .weight(1f)

@@ -22,6 +22,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import java.util.regex.Pattern
+import woowacourse.kanban.board.design.ColorPalette
 import woowacourse.kanban.board.design.Font
 
 @Composable
@@ -94,7 +95,7 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
         textStyle = TextStyle(
             color = if (isFormError ||
                 isCountError
-            ) MaterialTheme.colorScheme.error else Color.Black,
+            ) ColorPalette.Error else Color.Black,
         ),
         isError = isFormError || isCountError,
         placeholder = {
@@ -102,7 +103,7 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
                 text = "태그를 쉼표로 구분하여 입력하세요(예: 버그, 긴급)",
                 fontSize = Font.FORMINPUT.size,
                 fontWeight = Font.FORMINPUT.weight,
-                color = Color(0xFFAAAAAA),
+                color = ColorPalette.PlaceHolder,
             )
         },
         supportingText = {
@@ -115,7 +116,7 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
         trailingIcon = {
             if (isFormError || isCountError) {
                 Icon(
-                    Icons.Filled.Error, "error", tint = MaterialTheme.colorScheme.error,
+                    Icons.Filled.Error, "error", tint = ColorPalette.Error,
                 )
             }
         },
