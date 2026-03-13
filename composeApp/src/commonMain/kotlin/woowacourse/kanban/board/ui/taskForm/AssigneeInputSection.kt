@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import woowacourse.kanban.board.design.ColorPalette
 import woowacourse.kanban.board.design.Font
 import woowacourse.kanban.board.model.Assignee
 import woowacourse.kanban.board.ui.AssigneeSection
@@ -63,8 +64,8 @@ fun AssigneeField(assignees: List<Assignee>, selected: Assignee, onSelect: (Assi
     ) {
         assignees.forEach { assignee ->
             val isSelected = assignee == selected
-            val borderColor = if (isSelected) Color(0xFF615FFF) else Color(0xFFE5E7EB)
-            val backgroundColor = if (isSelected) Color(0xFFEEF2FF) else Color(0xFFFFFFFF)
+            val borderColor = if (isSelected) ColorPalette.AssigneeSelectedBorder else ColorPalette.AssigneeUnselectedBorder
+            val backgroundColor = if (isSelected) ColorPalette.AssigneeSelectedBackground else ColorPalette.AssigneeUnselectedBackground
             Box(
                 modifier = Modifier
                     .weight(1f)
