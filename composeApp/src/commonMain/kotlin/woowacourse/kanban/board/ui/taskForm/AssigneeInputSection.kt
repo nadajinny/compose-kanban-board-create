@@ -14,8 +14,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.design.ColorPalette
@@ -64,8 +64,14 @@ fun AssigneeField(assignees: List<Assignee>, selected: Assignee, onSelect: (Assi
     ) {
         assignees.forEach { assignee ->
             val isSelected = assignee == selected
-            val borderColor = if (isSelected) ColorPalette.AssigneeSelectedBorder else ColorPalette.AssigneeUnselectedBorder
-            val backgroundColor = if (isSelected) ColorPalette.AssigneeSelectedBackground else ColorPalette.AssigneeUnselectedBackground
+            val borderColor = remember(isSelected) {
+                if (isSelected) ColorPalette.AssigneeSelectedBorder
+                else ColorPalette.AssigneeUnselectedBorder
+            }
+            val backgroundColor = remember(isSelected) {
+                if (isSelected) ColorPalette.AssigneeSelectedBackground
+                else ColorPalette.AssigneeUnselectedBackground
+            }
             Box(
                 modifier = Modifier
                     .weight(1f)
