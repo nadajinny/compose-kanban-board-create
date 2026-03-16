@@ -17,13 +17,13 @@ import woowacourse.kanban.board.model.Assignee
 import woowacourse.kanban.board.ui.AssigneeSection
 import woowacourse.kanban.board.util.ColorPalette
 import woowacourse.kanban.board.util.Font
-import woowacourse.kanban.board.util.Strings
+import woowacourse.kanban.board.util.Text as UiText
 
 @Composable
 fun AssigneeInputSection(assignees: List<Assignee>, selected: Assignee, onSelect: (Assignee) -> Unit) {
     Column {
         Text(
-            text = Strings.LABEL_ASSIGNEE,
+            text = UiText.LABEL_ASSIGNEE,
             fontSize = Font.FORMTITLE.size,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp).fillMaxWidth(),

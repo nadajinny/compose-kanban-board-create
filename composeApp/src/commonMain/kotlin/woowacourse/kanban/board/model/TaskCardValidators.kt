@@ -1,13 +1,13 @@
 package woowacourse.kanban.board.model
 
-import woowacourse.kanban.board.util.Strings
+import woowacourse.kanban.board.util.Text
 
 object TaskCardValidators {
     fun validateTitle(text: String): Result<Title> {
         return if (text.isNotBlank()) {
             Result.success(Title(text))
         } else {
-            Result.failure(IllegalArgumentException(Strings.ERROR_TITLE_EMPTY))
+            Result.failure(IllegalArgumentException(Text.ERROR_TITLE_EMPTY))
         }
     }
 
@@ -15,15 +15,15 @@ object TaskCardValidators {
         return if (name.isNotBlank()) {
             Result.success(Assignee(name))
         } else {
-            Result.failure(IllegalArgumentException(Strings.ERROR_ASSIGNEE_EMPTY))
+            Result.failure(IllegalArgumentException(Text.ERROR_ASSIGNEE_EMPTY))
         }
     }
 
     fun validateTag(text: String): Result<Tag> {
         return when {
-            text.isBlank() -> Result.failure(IllegalArgumentException(Strings.ERROR_TAG_EMPTY))
+            text.isBlank() -> Result.failure(IllegalArgumentException(Text.ERROR_TAG_EMPTY))
             text.length > Tag.MAXIMUM_TAG_LENGTH -> Result.failure(
-                IllegalArgumentException(Strings.errorTagTooLong(Tag.MAXIMUM_TAG_LENGTH)),
+                IllegalArgumentException(Text.errorTagTooLong(Tag.MAXIMUM_TAG_LENGTH)),
             )
             else -> Result.success(Tag(text))
         }
@@ -34,7 +34,7 @@ object TaskCardValidators {
             Result.success(TagGroup(tags))
         } else {
             Result.failure(
-                IllegalArgumentException(Strings.errorTagCountExceeded(TagGroup.MAXIMUM_TAG_COUNT)),
+                IllegalArgumentException(Text.errorTagCountExceeded(TagGroup.MAXIMUM_TAG_COUNT)),
             )
         }
     }

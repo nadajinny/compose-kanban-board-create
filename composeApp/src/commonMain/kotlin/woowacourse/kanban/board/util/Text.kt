@@ -1,6 +1,6 @@
 package woowacourse.kanban.board.util
 
-object Strings {
+object Text {
     const val LABEL_STATUS = "상태 *"
     const val LABEL_TITLE = "제목 *"
     const val LABEL_DESCRIPTION = "설명"

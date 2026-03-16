@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import woowacourse.kanban.board.util.Font
-import woowacourse.kanban.board.util.Strings
+import woowacourse.kanban.board.util.Text as UiText
 
 @Preview(showBackground = true)
 @Composable
@@ -32,7 +32,7 @@ fun TaskCreateHeaderSection() {
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = Strings.HEADER_CREATE_TASK,
+                text = UiText.HEADER_CREATE_TASK,
                 fontSize = 20.sp,
                 fontWeight = Font.FORMTITLE.weight,
                 modifier = Modifier.padding(8.dp),
@@ -44,7 +44,7 @@ fun TaskCreateHeaderSection() {
             ) {
                 Icon(
                     imageVector = Icons.Filled.Close,
-                    contentDescription = Strings.ACTION_CLOSE,
+                    contentDescription = UiText.ACTION_CLOSE,
                     tint = Color.Black,
                 )
             }

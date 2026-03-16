@@ -19,13 +19,13 @@ import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.model.Condition
 import woowacourse.kanban.board.util.ColorPalette
 import woowacourse.kanban.board.util.Font
-import woowacourse.kanban.board.util.Strings
+import woowacourse.kanban.board.util.Text as UiText
 
 @Composable
 fun ConditionInputSection() {
     Column {
         Text(
-            text = Strings.LABEL_STATUS,
+            text = UiText.LABEL_STATUS,
             fontSize = Font.FORMTITLE.size,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp).fillMaxWidth(),

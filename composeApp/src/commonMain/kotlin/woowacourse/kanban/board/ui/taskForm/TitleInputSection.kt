@@ -17,13 +17,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.util.Font
-import woowacourse.kanban.board.util.Strings
+import woowacourse.kanban.board.util.Text as UiText
 
 @Composable
 fun TitleInputSection(title: String, onTitleChange: (String) -> Unit = {}, onErrorChange: (Boolean) -> Unit = {}) {
     Column {
         Text(
-            text = Strings.LABEL_TITLE,
+            text = UiText.LABEL_TITLE,
             fontSize = Font.FORMTITLE.size,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp).fillMaxWidth(),
@@ -53,7 +53,7 @@ private fun TitleInputPreview() {
 private fun TitleInputField(title: String, onTitleChange: (String) -> Unit, onErrorChange: (Boolean) -> Unit) {
     var isEmptyError by remember { mutableStateOf(false) }
     var isFocused by remember { mutableStateOf(false) }
-    val supportingText = if (isEmptyError) Strings.ERROR_TITLE_EMPTY_INPUT else ""
+    val supportingText = if (isEmptyError) UiText.ERROR_TITLE_EMPTY_INPUT else ""
     OutlinedTextField(
         value = title,
         onValueChange = {
@@ -62,7 +62,7 @@ private fun TitleInputField(title: String, onTitleChange: (String) -> Unit, onEr
         isError = isEmptyError,
         placeholder = {
             Text(
-                text = Strings.PLACEHOLDER_TITLE,
+                text = UiText.PLACEHOLDER_TITLE,
                 fontSize = Font.FORMINPUT.size,
                 fontWeight = Font.FORMINPUT.weight,
                 color = Color(0xFFAAAAAA),

@@ -14,14 +14,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.model.Assignee
 import woowacourse.kanban.board.util.Font
-import woowacourse.kanban.board.util.Strings
+import woowacourse.kanban.board.util.Text as UiText
 
 @Composable
 fun AssigneeSection(assignee: Assignee) {
     Row(modifier = Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
         Icon(
             imageVector = Icons.Default.AccountCircle,
-            contentDescription = Strings.CONTENT_USER_DEFAULT_IMAGE,
+            contentDescription = UiText.CONTENT_USER_DEFAULT_IMAGE,
         )
         Spacer(modifier = Modifier.padding(4.dp))
         Text(

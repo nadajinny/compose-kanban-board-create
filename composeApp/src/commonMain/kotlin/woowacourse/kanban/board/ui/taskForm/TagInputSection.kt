@@ -23,13 +23,13 @@ import androidx.compose.ui.unit.dp
 import java.util.regex.Pattern
 import woowacourse.kanban.board.util.ColorPalette
 import woowacourse.kanban.board.util.Font
-import woowacourse.kanban.board.util.Strings
+import woowacourse.kanban.board.util.Text as UiText
 
 @Composable
 fun TagInputSection(onTagsChange: (String) -> Unit = {}, onErrorChange: (Boolean) -> Unit = {}) {
     Column {
         Text(
-            text = Strings.LABEL_TAG,
+            text = UiText.LABEL_TAG,
             fontSize = Font.FORMTITLE.size,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp),
@@ -67,9 +67,9 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
     }
 
     val supportingText = if (isFormError) {
-        Strings.ERROR_TAG_FORMAT_INVALID
+        UiText.ERROR_TAG_FORMAT_INVALID
     } else {
-        Strings.HELPER_TAG_LIMIT
+        UiText.HELPER_TAG_LIMIT
     }
 
     LaunchedEffect(isFormError, isCountError) {
@@ -90,7 +90,7 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
         isError = isFormError || isCountError,
         placeholder = {
             Text(
-                text = Strings.PLACEHOLDER_TAG,
+                text = UiText.PLACEHOLDER_TAG,
                 fontSize = Font.FORMINPUT.size,
                 fontWeight = Font.FORMINPUT.weight,
                 color = ColorPalette.PlaceHolder,
@@ -106,7 +106,7 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
         trailingIcon = {
             if (isFormError || isCountError) {
                 Icon(
-                    Icons.Filled.Error, Strings.CONTENT_ERROR, tint = ColorPalette.Error,
+                    Icons.Filled.Error, UiText.CONTENT_ERROR, tint = ColorPalette.Error,
                 )
             }
         },

@@ -17,13 +17,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.util.Font
-import woowacourse.kanban.board.util.Strings
+import woowacourse.kanban.board.util.Text as UiText
 
 @Composable
 fun DescriptionInputSection(description: String, onDescriptionChange: (String) -> Unit = {}) {
     Column {
         Text(
-            text = Strings.LABEL_DESCRIPTION,
+            text = UiText.LABEL_DESCRIPTION,
             fontSize = Font.FORMTITLE.size,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp).fillMaxWidth(),
@@ -56,7 +56,7 @@ private fun DescriptionInputField(description: String, onDescriptionChange: (Str
         },
         placeholder = {
             Text(
-                text = Strings.PLACEHOLDER_DESCRIPTION,
+                text = UiText.PLACEHOLDER_DESCRIPTION,
                 fontSize = Font.FORMINPUT.size,
                 fontWeight = Font.FORMINPUT.weight,
                 color = Color(0xFFAAAAAA),
