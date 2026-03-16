@@ -72,8 +72,7 @@ private fun TitleInputField(title: String, onTitleChange: (String) -> Unit, onEr
             .fillMaxWidth()
             .onFocusChanged { focusState ->
                 isFocused = focusState.isFocused
-                if (!isFocused && title.isEmpty()) isEmptyError = true
-                else isEmptyError = false
+                isEmptyError = !isFocused && title.isEmpty()
                 onErrorChange(isEmptyError)
             },
         supportingText = {
