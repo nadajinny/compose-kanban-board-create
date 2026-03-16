@@ -7,7 +7,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -18,12 +17,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.util.Font
+import woowacourse.kanban.board.util.Strings
 
 @Composable
 fun TitleInputSection(title: String, onTitleChange: (String) -> Unit = {}, onErrorChange: (Boolean) -> Unit = {}) {
     Column {
         Text(
-            text = "제목 *",
+            text = Strings.LABEL_TITLE,
             fontSize = Font.FORMTITLE.size,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp).fillMaxWidth(),
@@ -53,12 +53,7 @@ private fun TitleInputPreview() {
 private fun TitleInputField(title: String, onTitleChange: (String) -> Unit, onErrorChange: (Boolean) -> Unit) {
     var isEmptyError by remember { mutableStateOf(false) }
     var isFocused by remember { mutableStateOf(false) }
-    val supportingText by remember {
-        derivedStateOf {
-            if (isEmptyError) "제목을 입력해주세요"
-            else ""
-        }
-    }
+    val supportingText = if (isEmptyError) Strings.ERROR_TITLE_EMPTY_INPUT else ""
     OutlinedTextField(
         value = title,
         onValueChange = {
@@ -67,7 +62,7 @@ private fun TitleInputField(title: String, onTitleChange: (String) -> Unit, onEr
         isError = isEmptyError,
         placeholder = {
             Text(
-                text = "태스크 제목을 입력하세요",
+                text = Strings.PLACEHOLDER_TITLE,
                 fontSize = Font.FORMINPUT.size,
                 fontWeight = Font.FORMINPUT.weight,
                 color = Color(0xFFAAAAAA),

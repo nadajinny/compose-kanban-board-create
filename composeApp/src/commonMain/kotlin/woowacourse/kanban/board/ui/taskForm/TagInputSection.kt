@@ -11,7 +11,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,12 +23,13 @@ import androidx.compose.ui.unit.dp
 import java.util.regex.Pattern
 import woowacourse.kanban.board.util.ColorPalette
 import woowacourse.kanban.board.util.Font
+import woowacourse.kanban.board.util.Strings
 
 @Composable
 fun TagInputSection(onTagsChange: (String) -> Unit = {}, onErrorChange: (Boolean) -> Unit = {}) {
     Column {
         Text(
-            text = "태그",
+            text = Strings.LABEL_TAG,
             fontSize = Font.FORMTITLE.size,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp),
@@ -59,27 +59,17 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
         Pattern.compile("^[^,]+(\\s*,\\s*[^,]+)*\$")
     }
 
-    val isFormError by remember {
-        derivedStateOf {
-            tags.isNotEmpty() && !tagsPattern.matcher(tags).matches()
-        }
+    val isFormError = tags.isNotEmpty() && !tagsPattern.matcher(tags).matches()
+
+    val isCountError = run {
+        val splitTags = tags.split(",")
+        tags.isNotEmpty() && (splitTags.size > 5 || !splitTags.all { it.trim().length in 1..5 })
     }
 
-    val isCountError by remember {
-        derivedStateOf {
-            val splitTags = tags.split(",")
-            tags.isNotEmpty() && (splitTags.size > 5 || !splitTags.all { it.trim().length in 1..5 })
-        }
-    }
-
-    val supportingText by remember {
-        derivedStateOf {
-            if (isFormError) {
-                "태그 형식이 올바르지 않습니다."
-            } else {
-                "5자 이내의 태그를 최대 5개까지 등록할 수 있습니다."
-            }
-        }
+    val supportingText = if (isFormError) {
+        Strings.ERROR_TAG_FORMAT_INVALID
+    } else {
+        Strings.HELPER_TAG_LIMIT
     }
 
     LaunchedEffect(isFormError, isCountError) {
@@ -100,7 +90,7 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
         isError = isFormError || isCountError,
         placeholder = {
             Text(
-                text = "태그를 쉼표로 구분하여 입력하세요(예: 버그, 긴급)",
+                text = Strings.PLACEHOLDER_TAG,
                 fontSize = Font.FORMINPUT.size,
                 fontWeight = Font.FORMINPUT.weight,
                 color = ColorPalette.PlaceHolder,
@@ -116,7 +106,7 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
         trailingIcon = {
             if (isFormError || isCountError) {
                 Icon(
-                    Icons.Filled.Error, "error", tint = ColorPalette.Error,
+                    Icons.Filled.Error, Strings.CONTENT_ERROR, tint = ColorPalette.Error,
                 )
             }
         },

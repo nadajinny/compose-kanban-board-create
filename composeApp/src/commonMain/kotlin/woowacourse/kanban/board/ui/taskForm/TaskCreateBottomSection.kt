@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.util.ColorPalette
+import woowacourse.kanban.board.util.Strings
 
 @Preview(showBackground = true)
 @Composable
@@ -43,7 +44,7 @@ fun TaskCreateBottomSection(isCreateEnabled: Boolean = true) {
                 ),
             ) {
                 Text(
-                    text = "취소",
+                    text = Strings.ACTION_CANCEL,
                     style = MaterialTheme.typography.titleMedium,
                 )
             }
@@ -55,7 +56,7 @@ fun TaskCreateBottomSection(isCreateEnabled: Boolean = true) {
                     containerColor = ColorPalette.ActiveButton,
                 ),
             ) {
-                Text("생성")
+                Text(Strings.ACTION_CREATE)
             }
         }
     }

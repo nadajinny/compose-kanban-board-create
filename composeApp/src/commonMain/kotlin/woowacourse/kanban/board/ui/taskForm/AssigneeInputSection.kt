@@ -13,16 +13,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import woowacourse.kanban.board.util.ColorPalette
-import woowacourse.kanban.board.util.Font
 import woowacourse.kanban.board.model.Assignee
 import woowacourse.kanban.board.ui.AssigneeSection
+import woowacourse.kanban.board.util.ColorPalette
+import woowacourse.kanban.board.util.Font
+import woowacourse.kanban.board.util.Strings
 
 @Composable
 fun AssigneeInputSection(assignees: List<Assignee>, selected: Assignee, onSelect: (Assignee) -> Unit) {
     Column {
         Text(
-            text = "담당자 *",
+            text = Strings.LABEL_ASSIGNEE,
             fontSize = Font.FORMTITLE.size,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp).fillMaxWidth(),

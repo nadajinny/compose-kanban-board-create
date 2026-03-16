@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import woowacourse.kanban.board.util.Font
+import woowacourse.kanban.board.util.Strings
 
 @Preview(showBackground = true)
 @Composable
@@ -29,7 +30,7 @@ fun TaskCreateHeaderSection() {
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
-            text = "새 태스크 생성",
+            text = Strings.HEADER_CREATE_TASK,
             fontSize = 20.sp,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp),
@@ -41,7 +42,7 @@ fun TaskCreateHeaderSection() {
         ) {
             Icon(
                 imageVector = Icons.Filled.Close,
-                contentDescription = "닫기",
+                contentDescription = Strings.ACTION_CLOSE,
                 tint = Color.Black,
             )
         }

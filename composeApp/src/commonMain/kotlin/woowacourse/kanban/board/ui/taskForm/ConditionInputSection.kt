@@ -16,15 +16,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import woowacourse.kanban.board.model.Condition
 import woowacourse.kanban.board.util.ColorPalette
 import woowacourse.kanban.board.util.Font
-import woowacourse.kanban.board.model.Condition
+import woowacourse.kanban.board.util.Strings
 
 @Composable
 fun ConditionInputSection() {
     Column {
         Text(
-            text = "상태 *",
+            text = Strings.LABEL_STATUS,
             fontSize = Font.FORMTITLE.size,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp).fillMaxWidth(),

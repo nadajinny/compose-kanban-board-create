@@ -1,7 +1,9 @@
 package woowacourse.kanban.board.model
 
-enum class Condition(val text: String = "To Do") {
-    TODO("To Do"),
-    INPROGRESS("In Progress"),
-    DONE("Done"),
+import woowacourse.kanban.board.util.Strings
+
+enum class Condition(val text: String) {
+    TODO(Strings.CONDITION_TODO),
+    INPROGRESS(Strings.CONDITION_IN_PROGRESS),
+    DONE(Strings.CONDITION_DONE),
 }

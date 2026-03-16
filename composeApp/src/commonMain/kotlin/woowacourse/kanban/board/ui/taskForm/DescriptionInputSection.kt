@@ -17,12 +17,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.util.Font
+import woowacourse.kanban.board.util.Strings
 
 @Composable
 fun DescriptionInputSection(description: String, onDescriptionChange: (String) -> Unit = {}) {
     Column {
         Text(
-            text = "설명",
+            text = Strings.LABEL_DESCRIPTION,
             fontSize = Font.FORMTITLE.size,
             fontWeight = Font.FORMTITLE.weight,
             modifier = Modifier.padding(8.dp).fillMaxWidth(),
@@ -55,7 +56,7 @@ private fun DescriptionInputField(description: String, onDescriptionChange: (Str
         },
         placeholder = {
             Text(
-                text = "태스크에 대한 자세한 설명을 입력하세요",
+                text = Strings.PLACEHOLDER_DESCRIPTION,
                 fontSize = Font.FORMINPUT.size,
                 fontWeight = Font.FORMINPUT.weight,
                 color = Color(0xFFAAAAAA),

@@ -7,9 +7,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import woowacourse.kanban.board.model.Tag
 import woowacourse.kanban.board.util.ColorPalette
 import woowacourse.kanban.board.util.Font
-import woowacourse.kanban.board.model.Tag
 
 @Composable
 fun TagSection(tag: Tag) {
