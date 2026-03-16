@@ -17,7 +17,7 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import woowacourse.kanban.board.design.Font
+import woowacourse.kanban.board.util.Font
 
 @Composable
 fun TitleInputSection(title: String, onTitleChange: (String) -> Unit = {}, onErrorChange: (Boolean) -> Unit = {}) {

@@ -21,8 +21,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import woowacourse.kanban.board.design.ColorPalette
-import woowacourse.kanban.board.design.Font
+import woowacourse.kanban.board.util.ColorPalette
+import woowacourse.kanban.board.util.Font
 import woowacourse.kanban.board.model.Condition
 
 @Composable

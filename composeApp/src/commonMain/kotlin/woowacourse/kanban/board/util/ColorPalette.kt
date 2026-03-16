@@ -1,4 +1,4 @@
-package woowacourse.kanban.board.design
+package woowacourse.kanban.board.util
 
 import androidx.compose.ui.graphics.Color
 

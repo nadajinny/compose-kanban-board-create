@@ -22,8 +22,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import java.util.regex.Pattern
-import woowacourse.kanban.board.design.ColorPalette
-import woowacourse.kanban.board.design.Font
+import woowacourse.kanban.board.util.ColorPalette
+import woowacourse.kanban.board.util.Font
 
 @Composable
 fun TagInputSection(onTagsChange: (String) -> Unit = {}, onErrorChange: (Boolean) -> Unit = {}) {
