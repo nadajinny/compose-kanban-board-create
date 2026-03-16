@@ -22,7 +22,9 @@ import woowacourse.kanban.board.util.Strings
 @Preview(showBackground = true)
 @Composable
 private fun ButtonFieldDisabledPreview() {
-    TaskCreateBottomSection()
+    MaterialTheme {
+        TaskCreateBottomSection()
+    }
 }
 
 @Composable

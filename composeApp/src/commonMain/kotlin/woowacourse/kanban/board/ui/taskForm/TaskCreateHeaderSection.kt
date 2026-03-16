@@ -24,28 +24,30 @@ import woowacourse.kanban.board.util.Strings
 @Preview(showBackground = true)
 @Composable
 fun TaskCreateHeaderSection() {
-    Row(
-        modifier = Modifier.fillMaxWidth().padding(12.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(
-            text = Strings.HEADER_CREATE_TASK,
-            fontSize = 20.sp,
-            fontWeight = Font.FORMTITLE.weight,
-            modifier = Modifier.padding(8.dp),
-        )
-        IconButton(
-            modifier = Modifier.size(20.dp),
-            onClick = {},
-
+    MaterialTheme {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(12.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            Icon(
-                imageVector = Icons.Filled.Close,
-                contentDescription = Strings.ACTION_CLOSE,
-                tint = Color.Black,
+            Text(
+                text = Strings.HEADER_CREATE_TASK,
+                fontSize = 20.sp,
+                fontWeight = Font.FORMTITLE.weight,
+                modifier = Modifier.padding(8.dp),
             )
+            IconButton(
+                modifier = Modifier.size(20.dp),
+                onClick = {},
+
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Close,
+                    contentDescription = Strings.ACTION_CLOSE,
+                    tint = Color.Black,
+                )
+            }
         }
+        HorizontalDivider()
     }
-    HorizontalDivider()
 }
