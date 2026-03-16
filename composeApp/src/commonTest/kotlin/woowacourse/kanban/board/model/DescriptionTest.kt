@@ -9,8 +9,7 @@ class DescriptionTest {
     fun `텍스트로 Description 객체를 생성할 수 있다`() {
         val description = Description("이건 설명 텍스트입니다.")
         assertIs<Description>(description)
-        val content = description as Description
-        assert(content.text == "이건 설명 텍스트입니다.")
+        assert(description.text == "이건 설명 텍스트입니다.")
     }
     @Test
     fun `빈 공란으로도 isEmpty()가 true가 된다`() {
