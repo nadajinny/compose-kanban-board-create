@@ -7,7 +7,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Button
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,17 +17,30 @@ import androidx.compose.ui.unit.dp
 
 @Preview(showBackground = true)
 @Composable
-private fun KanbanBoardSectionPreview() {
-    MaterialTheme{
-        KanbanBoardSection()
+fun KanbanBoardHeaderSectionPreview() {
+    MaterialTheme {
+        KanbanBoardHeaderSection()
     }
 }
 
 @Composable
-fun KanbanBoardSection() {
-    Column {
-        KanbanBoardHeaderSection()
-        HorizontalDivider()
-        KanbanBoardBodySection()
+fun KanbanBoardHeaderSection() {
+    Row {
+        Column {
+            Text("Compose Desktop 칸반 보드")
+            Text("완료율 : 50% (3/6)")
+        }
+        Button(
+            onClick = {},
+            shape = RoundedCornerShape(8.dp),
+        ) {
+            Icon(
+                imageVector = Icons.Filled.Add,
+                contentDescription = "새 테스크 생성",
+                modifier = Modifier.size(20.dp)
+            )
+            Text("새 테스크 생성")
+        }
     }
+
 }
