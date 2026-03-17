@@ -8,7 +8,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import woowacourse.kanban.board.model.Condition
 import woowacourse.kanban.board.model.Tag
 import woowacourse.kanban.board.model.TaskCard
-import woowacourse.kanban.board.ui.TaskCardSection
+import woowacourse.kanban.board.ui.taskCard.TaskCardSection
 import woowacourse.kanban.board.ui.taskForm.TaskCreateSection
 
 private class TaskCardProvider : PreviewParameterProvider<TaskCard> {
