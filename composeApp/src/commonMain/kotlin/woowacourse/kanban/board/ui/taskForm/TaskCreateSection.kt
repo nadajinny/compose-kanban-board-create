@@ -47,7 +47,7 @@ fun TaskCreateSection() {
                 onTagsChange = { tags = it },
                 onErrorChange = { isTagError = it },
             )
-            ConditionInputSection()
+            StatusInputSection()
             AssigneeInputSection(
                 assignees = assignees,
                 selected = assignee,

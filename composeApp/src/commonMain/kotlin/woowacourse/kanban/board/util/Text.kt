@@ -24,9 +24,9 @@ object Text {
     const val CONTENT_USER_DEFAULT_IMAGE = "사용자 기본 이미지"
     const val CONTENT_ERROR = "error"
 
-    const val CONDITION_TODO = "To Do"
-    const val CONDITION_IN_PROGRESS = "In Progress"
-    const val CONDITION_DONE = "Done"
+    const val STATUS_TODO = "To Do"
+    const val STATUS_IN_PROGRESS = "In Progress"
+    const val STATUS_DONE = "Done"
 
     const val ERROR_TITLE_EMPTY = "[ERROR] 제목은 빈 값일 수 없습니다."
     const val ERROR_ASSIGNEE_EMPTY = "[ERROR] 담당자는 빈 값일 수 없습니다."
