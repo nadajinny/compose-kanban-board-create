@@ -12,9 +12,10 @@ import woowacourse.kanban.board.ui.taskCard.TaskCardSection
 
 @Preview(showBackground = true)
 @Composable
-fun TaskCardPreview(@PreviewParameter(TaskCardPreviewData::class) taskCard: TaskCard) {
+private fun KanbanBoardBodySectionPreview() {
+    val taskCards = TaskCardPreviewData().values.toList()
     MaterialTheme {
-        TaskCardSection(taskCard = taskCard)
+        KanbanBoardBodySection(taskCards = taskCards)
     }
 }
 
