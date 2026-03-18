@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import woowacourse.kanban.board.model.Status
 
 @Composable
-fun KanbanColumnSection(status : Status) {
+fun KanbanColumnSection(status: Status) {
     Column {
         Row {
             Text(status.text)
