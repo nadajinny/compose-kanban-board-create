@@ -17,4 +17,5 @@ object ColorPalette {
     val StatusUnselectedText = Color(0xFF364153)
     val PlaceHolder = Color(0xFFAAAAAA)
     val ActiveButton = Color(0xFF4F39F6)
+    val StatusBar = Color(0xFF4F39F6)
 }
