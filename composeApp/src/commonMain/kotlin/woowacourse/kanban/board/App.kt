@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import woowacourse.kanban.board.model.TaskCard
+import woowacourse.kanban.board.ui.kanbanBoard.KanbanBoardSection
 import woowacourse.kanban.board.ui.sample.TaskCardPreviewData
 import woowacourse.kanban.board.ui.taskCard.TaskCardSection
 import woowacourse.kanban.board.ui.taskForm.TaskCreateSection
@@ -12,9 +13,10 @@ import woowacourse.kanban.board.ui.taskForm.TaskCreateSection
 
 @Preview(showBackground = true)
 @Composable
-fun TaskCardPreview(@PreviewParameter(TaskCardPreviewData::class) taskCard: TaskCard) {
-    MaterialTheme {
-        TaskCardSection(taskCard = taskCard)
+private fun KanbanBoardPreview() {
+    val taskCards = TaskCardPreviewData().values.toList()
+    MaterialTheme{
+        KanbanBoardSection(taskCards = taskCards)
     }
 }
 
