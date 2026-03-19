@@ -19,4 +19,22 @@ object ColorPalette {
     val ActiveButton = Color(0xFF4F39F6)
     val StatusBarPoint = Color(0xFF4F39F6)
     val StatusBarBackground = Color(0xFFE5E7EB)
+
+    object BoxHeader {
+        val Todo = Color(0xFF155DFC)
+        val InProgress = Color(0xFFE17100)
+        val Done = Color(0xFF00A63E)
+    }
+
+    object BoxBody {
+        val Todo = Color(0xFFEFF6FF)
+        val InProgress = Color(0xFFFFFBEB)
+        val Done = Color(0xFFF0FDF4)
+    }
+
+    object Border {
+        val Todo = Color(0xFFBEDBFF)
+        val InProgress = Color(0xFFFEE685)
+        val Done = Color(0xFFB9F8CF)
+    }
 }

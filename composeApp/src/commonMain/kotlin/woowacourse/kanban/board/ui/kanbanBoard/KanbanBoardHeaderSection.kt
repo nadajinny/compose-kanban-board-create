@@ -14,18 +14,25 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
+import woowacourse.kanban.board.ui.taskForm.TaskCreateSection
 import woowacourse.kanban.board.util.ColorPalette
+import androidx.compose.runtime.*
 
 @Preview(showBackground = true)
 @Composable
@@ -39,6 +46,8 @@ fun KanbanBoardHeaderSectionPreview() {
 
 @Composable
 fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
+    var showDialog by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier.fillMaxWidth().padding(12.dp),
     ) {
@@ -48,10 +57,10 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
         ) {
             Column {
                 Text("Compose Desktop 칸반 보드")
-                Text("완료율 : ${(doneCount.toFloat()/totalCount*100).toInt()}% (${doneCount}/${totalCount})")
+                Text("완료율 : ${(doneCount.toFloat() / totalCount * 100).toInt()}% ($doneCount/$totalCount)")
             }
             Button(
-                onClick = {},
+                onClick = { showDialog = true },
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = ColorPalette.ActiveButton,
@@ -67,8 +76,15 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
         }
         Spacer(modifier = Modifier.padding(5.dp))
         CustomLinearProgress(
-            progress = doneCount.toFloat()/totalCount,
+            progress = doneCount.toFloat() / totalCount,
         )
+        if(showDialog) {
+            Dialog(
+                onDismissRequest = {showDialog = false}
+            ) {
+                TaskCreateSection()
+            }
+        }
     }
 }
 

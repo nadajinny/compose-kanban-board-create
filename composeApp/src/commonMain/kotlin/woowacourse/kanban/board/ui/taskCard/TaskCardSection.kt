@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,10 +33,14 @@ fun TaskCardSection(taskCard: TaskCard) {
 @Composable
 fun TaskCardSection(title: Title, description: Description, tagGroup: TagGroup, assignee: Assignee) {
     Box(
-        modifier = Modifier.border(
-            border = BorderStroke(1.dp, Color.LightGray),
-            shape = RoundedCornerShape(8.dp),
-        ).width(250.dp).padding(8.dp),
+        modifier = Modifier
+            .border(
+                border = BorderStroke(1.dp, Color.LightGray),
+                shape = RoundedCornerShape(8.dp),
+            )
+            .fillMaxWidth()
+            .background(Color.White)
+            .padding(8.dp),
     ) {
         Column {
             TitleSection(title = title)

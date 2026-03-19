@@ -27,7 +27,7 @@ fun KanbanBoardSection(taskCards: List<TaskCard>) {
     Column(
         modifier = Modifier.fillMaxWidth(),
     ) {
-        KanbanBoardHeaderSection(totalCount,doneCount)
+        KanbanBoardHeaderSection(totalCount, doneCount)
         HorizontalDivider()
         KanbanBoardBodySection(taskCards)
     }
