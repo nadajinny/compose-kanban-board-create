@@ -21,7 +21,8 @@ private fun KanbanBoardBodySectionPreview() {
 fun KanbanBoardBodySection(taskCards: List<TaskCard>) {
     Row {
         for (status in Status.entries) {
-            KanbanColumnSection(status)
+            val taskByStatus = taskCards.filter { it.status == status }
+            KanbanColumnSection(status,taskByStatus)
         }
     }
 }
