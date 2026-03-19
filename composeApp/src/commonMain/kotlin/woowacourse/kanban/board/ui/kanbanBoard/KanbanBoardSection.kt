@@ -19,7 +19,7 @@ import woowacourse.kanban.board.model.TaskCard
 import woowacourse.kanban.board.ui.sample.TaskCardPreviewData
 import woowacourse.kanban.board.ui.taskForm.TaskCreateSection
 
-@Preview(showBackground = true, widthDp = 1000, heightDp = 1000)
+@Preview(showBackground = true, widthDp = 1000, heightDp = 900)
 @Composable
 private fun KanbanBoardSectionPreview() {
     val taskCards = TaskCardPreviewData().values.toList()

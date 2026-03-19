@@ -6,7 +6,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import woowacourse.kanban.board.ui.kanbanBoard.KanbanBoardSection
 import woowacourse.kanban.board.ui.sample.TaskCardPreviewData
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, widthDp = 1000, heightDp = 900)
 @Composable
 private fun KanbanBoardPreview() {
     val taskCards = TaskCardPreviewData().values.toList()
@@ -15,7 +15,6 @@ private fun KanbanBoardPreview() {
     }
 }
 
-@Preview(showBackground = true)
 @Composable
 fun App() {
     val taskCards = TaskCardPreviewData().values.toList()

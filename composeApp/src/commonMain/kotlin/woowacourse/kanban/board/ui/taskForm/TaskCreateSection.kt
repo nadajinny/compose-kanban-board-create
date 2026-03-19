@@ -66,6 +66,7 @@ fun TaskCreateSection(
             isCreateEnabled = isCreateEnabled,
             onCancelClick = onDismiss,
             onCreateClick = {
+
                 onDismiss()
             }
         )

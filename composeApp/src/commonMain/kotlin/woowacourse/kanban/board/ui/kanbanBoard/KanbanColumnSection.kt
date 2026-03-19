@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -29,7 +30,8 @@ fun KanbanColumnSection(status: Status, tasks: List<TaskCard>) {
 
     Column(
         modifier = Modifier
-            .width(250.dp)
+            .width(300.dp)
+            .fillMaxHeight()
             .padding(8.dp)
             .clip(shape)
             .border(
@@ -79,6 +81,7 @@ fun KanbanColumnBodySection(bodyColor: Color, tasks: List<TaskCard>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .fillMaxHeight()
             .background(bodyColor)
             .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
