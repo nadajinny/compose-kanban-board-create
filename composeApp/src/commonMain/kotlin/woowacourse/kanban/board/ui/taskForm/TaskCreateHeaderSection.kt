@@ -52,7 +52,6 @@ fun TaskCreateHeaderSection(onDismiss: () -> Unit) {
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
 private fun TaskCreateHeaderSectionPreview() {

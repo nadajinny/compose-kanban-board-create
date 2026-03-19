@@ -32,11 +32,7 @@ private fun ButtonFieldDisabledPreview() {
 }
 
 @Composable
-fun TaskCreateBottomSection(
-    isCreateEnabled: Boolean = true,
-    onCancelClick: () -> Unit,
-    onCreateClick: () -> Unit,
-) {
+fun TaskCreateBottomSection(isCreateEnabled: Boolean = true, onCancelClick: () -> Unit, onCreateClick: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxWidth(),
     ) {

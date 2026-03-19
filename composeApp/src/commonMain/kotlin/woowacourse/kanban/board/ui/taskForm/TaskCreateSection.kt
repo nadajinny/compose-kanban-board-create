@@ -16,9 +16,7 @@ import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.model.Assignee
 
 @Composable
-fun TaskCreateSection(
-    onDismiss: () -> Unit = {},
-) {
+fun TaskCreateSection(onDismiss: () -> Unit = {}) {
     val assignees = remember {
         listOf(
             Assignee("다이노"),
@@ -36,7 +34,7 @@ fun TaskCreateSection(
     val isCreateEnabled = title.isNotBlank() && !isTitleError && !isTagError
 
     Column(
-        modifier = Modifier.background(Color.White)
+        modifier = Modifier.background(Color.White),
     ) {
         TaskCreateHeaderSection(onDismiss = onDismiss)
         Column(
@@ -68,7 +66,7 @@ fun TaskCreateSection(
             onCreateClick = {
 
                 onDismiss()
-            }
+            },
         )
     }
 }
