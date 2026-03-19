@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import woowacourse.kanban.board.model.Status
 import woowacourse.kanban.board.model.TaskCard
 import woowacourse.kanban.board.ui.sample.TaskCardPreviewData
 
@@ -21,10 +22,12 @@ private fun KanbanBoardSectionPreview() {
 
 @Composable
 fun KanbanBoardSection(taskCards: List<TaskCard>) {
+    val totalCount = taskCards.size
+    val doneCount = taskCards.count { it.status == Status.DONE }
     Column(
         modifier = Modifier.fillMaxWidth(),
     ) {
-        KanbanBoardHeaderSection()
+        KanbanBoardHeaderSection(totalCount,doneCount)
         HorizontalDivider()
         KanbanBoardBodySection(taskCards)
     }

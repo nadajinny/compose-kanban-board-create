@@ -30,13 +30,15 @@ import woowacourse.kanban.board.util.ColorPalette
 @Preview(showBackground = true)
 @Composable
 fun KanbanBoardHeaderSectionPreview() {
+    val totalCount = 5
+    val doneCount = 2
     MaterialTheme {
-        KanbanBoardHeaderSection()
+        KanbanBoardHeaderSection(totalCount, doneCount)
     }
 }
 
 @Composable
-fun KanbanBoardHeaderSection() {
+fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
     Column(
         modifier = Modifier.fillMaxWidth().padding(12.dp),
     ) {
@@ -46,7 +48,7 @@ fun KanbanBoardHeaderSection() {
         ) {
             Column {
                 Text("Compose Desktop 칸반 보드")
-                Text("완료율 : 50% (3/6)")
+                Text("완료율 : ${(doneCount.toFloat()/totalCount*100).toInt()}% (${doneCount}/${totalCount})")
             }
             Button(
                 onClick = {},

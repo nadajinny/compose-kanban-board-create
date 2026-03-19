@@ -29,7 +29,9 @@ fun App() {
 //        }
 //    }
 
+    val taskCards = TaskCardPreviewData().values.toList()
+
     MaterialTheme {
-        TaskCreateSection()
+        KanbanBoardSection(taskCards)
     }
 }
