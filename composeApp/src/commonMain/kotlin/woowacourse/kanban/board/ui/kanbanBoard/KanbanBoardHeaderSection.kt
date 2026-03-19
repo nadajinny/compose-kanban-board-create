@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -24,18 +23,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import woowacourse.kanban.board.ui.taskForm.TaskCreateSection
 import woowacourse.kanban.board.util.ColorPalette
-import androidx.compose.runtime.*
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.sp
-import androidx.compose.ui.text.font.FontWeight
 
 @Preview(showBackground = true)
 @Composable
@@ -63,8 +62,8 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
                     text = "Compose Desktop 칸반 보드",
                     style = TextStyle(
                         fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold
-                    )
+                        fontWeight = FontWeight.Bold,
+                    ),
                 )
                 Text("완료율 : ${(doneCount.toFloat() / totalCount * 100).toInt()}% ($doneCount/$totalCount)")
             }
@@ -87,9 +86,9 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
         CustomLinearProgress(
             progress = doneCount.toFloat() / totalCount,
         )
-        if(showDialog) {
+        if (showDialog) {
             Dialog(
-                onDismissRequest = {showDialog = false}
+                onDismissRequest = { showDialog = false },
             ) {
                 TaskCreateSection()
             }

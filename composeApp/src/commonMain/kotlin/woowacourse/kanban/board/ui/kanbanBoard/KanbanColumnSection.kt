@@ -3,7 +3,6 @@ package woowacourse.kanban.board.ui.kanbanBoard
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -52,11 +51,7 @@ fun KanbanColumnSection(status: Status, tasks: List<TaskCard>) {
 }
 
 @Composable
-fun KanbanColumnHeaderSection(
-    headerColor: Color,
-    status: Status,
-    tasks: List<TaskCard>,
-) {
+fun KanbanColumnHeaderSection(headerColor: Color, status: Status, tasks: List<TaskCard>) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -67,23 +62,20 @@ fun KanbanColumnHeaderSection(
         Text(
             text = status.text,
             color = Color.White,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
         )
         Text(
             text = tasks.size.toString(),
             modifier = Modifier
                 .clip(CircleShape)
                 .background(Color.White)
-                .padding(horizontal = 12.dp, vertical = 1.dp)
+                .padding(horizontal = 12.dp, vertical = 1.dp),
         )
     }
 }
 
 @Composable
-fun KanbanColumnBodySection(
-    bodyColor: Color,
-    tasks: List<TaskCard>,
-) {
+fun KanbanColumnBodySection(bodyColor: Color, tasks: List<TaskCard>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
