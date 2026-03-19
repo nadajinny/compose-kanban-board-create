@@ -22,9 +22,8 @@ import androidx.compose.ui.unit.sp
 import woowacourse.kanban.board.util.Font
 import woowacourse.kanban.board.util.Text as UiText
 
-@Preview(showBackground = true)
 @Composable
-fun TaskCreateHeaderSection() {
+fun TaskCreateHeaderSection(onDismiss: () -> Unit) {
     MaterialTheme {
         Row(
             modifier = Modifier.fillMaxWidth().padding(12.dp),
@@ -39,7 +38,7 @@ fun TaskCreateHeaderSection() {
             )
             IconButton(
                 modifier = Modifier.size(20.dp),
-                onClick = {},
+                onClick = onDismiss,
 
             ) {
                 Icon(
@@ -50,5 +49,16 @@ fun TaskCreateHeaderSection() {
             }
         }
         HorizontalDivider()
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+private fun TaskCreateHeaderSectionPreview() {
+    MaterialTheme {
+        TaskCreateHeaderSection(
+            onDismiss = {},
+        )
     }
 }

@@ -20,21 +20,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
-import woowacourse.kanban.board.ui.taskForm.TaskCreateSection
 import woowacourse.kanban.board.util.ColorPalette
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.font.FontWeight
 
 @Preview(showBackground = true)
 @Composable
@@ -42,16 +36,24 @@ fun KanbanBoardHeaderSectionPreview() {
     val totalCount = 5
     val doneCount = 2
     MaterialTheme {
-        KanbanBoardHeaderSection(totalCount, doneCount)
+        KanbanBoardHeaderSection(
+            totalCount = totalCount,
+            doneCount = doneCount,
+            onCreateClick = {},
+        )
     }
 }
 
 @Composable
-fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
-    var showDialog by remember { mutableStateOf(false) }
-
+fun KanbanBoardHeaderSection(
+    totalCount: Int,
+    doneCount: Int,
+    onCreateClick: () -> Unit,
+) {
     Column(
-        modifier = Modifier.fillMaxWidth().padding(12.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -65,10 +67,17 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
                         fontWeight = FontWeight.Bold,
                     ),
                 )
-                Text("완료율 : ${(doneCount.toFloat() / totalCount * 100).toInt()}% ($doneCount/$totalCount)")
+                Text(
+                    text = if (totalCount == 0) {
+                        "완료율 : 0% (0/0)"
+                    } else {
+                        "완료율 : ${(doneCount.toFloat() / totalCount * 100).toInt()}% ($doneCount/$totalCount)"
+                    },
+                )
             }
+
             Button(
-                onClick = { showDialog = true },
+                onClick = onCreateClick,
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = ColorPalette.ActiveButton,
@@ -82,17 +91,12 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
                 Text("새 테스크 생성")
             }
         }
-        Spacer(modifier = Modifier.padding(5.dp))
+
+        Spacer(modifier = Modifier.height(8.dp))
+
         CustomLinearProgress(
-            progress = doneCount.toFloat() / totalCount,
+            progress = if (totalCount == 0) 0f else doneCount.toFloat() / totalCount,
         )
-        if (showDialog) {
-            Dialog(
-                onDismissRequest = { showDialog = false },
-            ) {
-                TaskCreateSection()
-            }
-        }
     }
 }
 
