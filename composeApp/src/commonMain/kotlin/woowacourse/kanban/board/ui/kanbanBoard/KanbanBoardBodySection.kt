@@ -19,7 +19,7 @@ private fun KanbanBoardBodySectionPreview() {
 
 @Composable
 fun KanbanBoardBodySection(taskCards: List<TaskCard>) {
-    Row{
+    Row {
         for (status in Status.entries) {
             val taskByStatus = taskCards.filter { it.status == status }
             KanbanColumnSection(status, taskByStatus)
