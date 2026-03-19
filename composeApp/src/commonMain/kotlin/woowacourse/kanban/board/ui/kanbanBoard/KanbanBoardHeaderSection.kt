@@ -33,6 +33,9 @@ import androidx.compose.ui.window.Dialog
 import woowacourse.kanban.board.ui.taskForm.TaskCreateSection
 import woowacourse.kanban.board.util.ColorPalette
 import androidx.compose.runtime.*
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.font.FontWeight
 
 @Preview(showBackground = true)
 @Composable
@@ -56,7 +59,13 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Column {
-                Text("Compose Desktop 칸반 보드")
+                Text(
+                    text = "Compose Desktop 칸반 보드",
+                    style = TextStyle(
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
                 Text("완료율 : ${(doneCount.toFloat() / totalCount * 100).toInt()}% ($doneCount/$totalCount)")
             }
             Button(
