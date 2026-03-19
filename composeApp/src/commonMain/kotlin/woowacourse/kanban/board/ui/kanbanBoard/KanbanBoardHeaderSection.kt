@@ -67,7 +67,7 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int) {
         }
         Spacer(modifier = Modifier.padding(5.dp))
         CustomLinearProgress(
-            progress = 0.5f,
+            progress = doneCount.toFloat()/totalCount,
         )
     }
 }
