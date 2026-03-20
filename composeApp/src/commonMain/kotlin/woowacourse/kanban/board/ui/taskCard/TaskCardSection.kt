@@ -24,7 +24,7 @@ fun TaskCardSection(taskCard: TaskCard) {
     TaskCardSection(
         title = Title(taskCard.title),
         description = Description(taskCard.description),
-        tagGroup = TagGroup(tags = taskCard.tags),
+        tagGroup = taskCard.tags,
         assignee = Assignee(name = taskCard.assignee),
     )
 }
