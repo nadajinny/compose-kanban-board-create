@@ -83,7 +83,7 @@ fun KanbanBoardSection(taskCards: List<TaskCard>) {
                         showDialog = false
                         coroutineScope.launch {
                             snackBarHostState.showSnackbar(
-                                message = "새 테스크가 생성되었습니다.",
+                                message = "새로운 테스크가 추가되었습니다.",
                                 duration = SnackbarDuration.Short,
                             )
                         }
