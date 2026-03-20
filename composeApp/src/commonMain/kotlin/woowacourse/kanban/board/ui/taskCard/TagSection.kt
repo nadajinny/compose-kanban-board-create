@@ -16,7 +16,7 @@ import woowacourse.kanban.board.util.Font
 fun TagSection(tag: Tag) {
     Text(
         text = tag.text,
-        fontSize = Font.TAG.size,
+        style = Font.TAG,
         modifier = Modifier.background(Color(0xFFF3F4F6), RoundedCornerShape(10.dp)).padding(4.dp),
     )
 }

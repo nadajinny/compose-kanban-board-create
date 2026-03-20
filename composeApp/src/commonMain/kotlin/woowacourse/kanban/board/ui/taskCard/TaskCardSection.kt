@@ -22,10 +22,10 @@ import woowacourse.kanban.board.model.Title
 @Composable
 fun TaskCardSection(taskCard: TaskCard) {
     TaskCardSection(
-        title = Title(taskCard.title),
-        description = Description(taskCard.description),
+        title = taskCard.title,
+        description = taskCard.description,
         tagGroup = taskCard.tags,
-        assignee = Assignee(name = taskCard.assignee),
+        assignee = taskCard.assignee,
     )
 }
 

@@ -24,8 +24,7 @@ fun TitleInputSection(title: String, onTitleChange: (String) -> Unit = {}, onErr
     Column {
         Text(
             text = UiText.LABEL_TITLE,
-            fontSize = Font.FORMTITLE.size,
-            fontWeight = Font.FORMTITLE.weight,
+            style = Font.FORM_TITLE,
             modifier = Modifier.padding(8.dp).fillMaxWidth(),
         )
         TitleInputField(
@@ -63,8 +62,7 @@ private fun TitleInputField(title: String, onTitleChange: (String) -> Unit, onEr
         placeholder = {
             Text(
                 text = UiText.PLACEHOLDER_TITLE,
-                fontSize = Font.FORMINPUT.size,
-                fontWeight = Font.FORMINPUT.weight,
+                style = Font.FORM_INPUT,
                 color = Color(0xFFAAAAAA),
             )
         },
@@ -78,8 +76,7 @@ private fun TitleInputField(title: String, onTitleChange: (String) -> Unit, onEr
         supportingText = {
             Text(
                 text = supportingText,
-                fontSize = Font.FORMEXPLAIN.size,
-                fontWeight = Font.FORMEXPLAIN.weight,
+                style = Font.FORM_EXPLAIN
             )
         },
 

@@ -32,8 +32,7 @@ fun TaskCreateHeaderSection(onDismiss: () -> Unit) {
         ) {
             Text(
                 text = UiText.HEADER_CREATE_TASK,
-                fontSize = 20.sp,
-                fontWeight = Font.FORMTITLE.weight,
+                style = Font.FORM_HEADER,
                 modifier = Modifier.padding(8.dp),
             )
             IconButton(

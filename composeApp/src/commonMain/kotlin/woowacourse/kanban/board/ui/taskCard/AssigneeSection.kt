@@ -26,8 +26,7 @@ fun AssigneeSection(assignee: Assignee) {
         Spacer(modifier = Modifier.padding(4.dp))
         Text(
             text = assignee.name,
-            fontSize = Font.ASSIGNEE.size,
-            fontWeight = Font.ASSIGNEE.weight,
+            style = Font.ASSIGNEE,
             overflow = TextOverflow.Ellipsis, maxLines = 1,
         )
     }

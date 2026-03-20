@@ -3,7 +3,6 @@ package woowacourse.kanban.board.util
 import androidx.compose.ui.graphics.Color
 
 object ColorPalette {
-    val LighterGray = Color(0xFFDEDEDE)
     val Error = Color(0xFFB3261E)
     val AssigneeUnselectedBorder = Color(0xFFE5E7EB)
     val AssigneeSelectedBorder = Color(0xFF615FFF)

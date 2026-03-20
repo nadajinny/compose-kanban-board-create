@@ -1,9 +1,9 @@
 package woowacourse.kanban.board.model
 
 data class TaskCard(
-    val title: String,
-    val description: String = "",
+    val title: Title,
+    val description: Description,
     val status: Status,
     val tags: TagGroup = TagGroup(emptyList()),
-    val assignee: String,
+    val assignee: Assignee,
 )

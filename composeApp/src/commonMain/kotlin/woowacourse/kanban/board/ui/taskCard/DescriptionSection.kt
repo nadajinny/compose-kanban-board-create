@@ -14,7 +14,7 @@ import woowacourse.kanban.board.util.Font
 fun DescriptionSection(description: Description) {
     Text(
         text = description.text,
-        fontSize = Font.DESCRIPTION.size,
+        style = Font.DESCRIPTION,
         overflow = TextOverflow.Ellipsis,
         maxLines = 2,
         modifier = Modifier.padding(8.dp),

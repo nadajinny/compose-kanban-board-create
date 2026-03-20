@@ -26,8 +26,7 @@ fun StatusInputSection() {
     Column {
         Text(
             text = UiText.LABEL_STATUS,
-            fontSize = Font.FORMTITLE.size,
-            fontWeight = Font.FORMTITLE.weight,
+            style = Font.FORM_TITLE,
             modifier = Modifier.padding(8.dp).fillMaxWidth(),
         )
         StatusField()

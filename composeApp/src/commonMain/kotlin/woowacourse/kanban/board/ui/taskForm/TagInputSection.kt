@@ -30,8 +30,7 @@ fun TagInputSection(onTagsChange: (String) -> Unit = {}, onErrorChange: (Boolean
     Column {
         Text(
             text = UiText.LABEL_TAG,
-            fontSize = Font.FORMTITLE.size,
-            fontWeight = Font.FORMTITLE.weight,
+            style = Font.FORM_TITLE,
             modifier = Modifier.padding(8.dp),
         )
         TagInputField(
@@ -91,16 +90,14 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
         placeholder = {
             Text(
                 text = UiText.PLACEHOLDER_TAG,
-                fontSize = Font.FORMINPUT.size,
-                fontWeight = Font.FORMINPUT.weight,
+                style = Font.FORM_INPUT,
                 color = ColorPalette.PlaceHolder,
             )
         },
         supportingText = {
             Text(
                 text = supportingText,
-                fontSize = Font.FORMEXPLAIN.size,
-                fontWeight = Font.FORMEXPLAIN.weight,
+                style = Font.FORM_EXPLAIN,
             )
         },
         trailingIcon = {

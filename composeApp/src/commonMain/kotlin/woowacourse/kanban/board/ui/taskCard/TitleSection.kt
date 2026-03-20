@@ -13,7 +13,7 @@ import woowacourse.kanban.board.util.Font
 fun TitleSection(title: Title) {
     Text(
         text = title.text,
-        fontSize = Font.TITLE.size,
+        style = Font.TITLE,
         overflow = TextOverflow.Ellipsis, maxLines = 1,
         modifier = Modifier.padding(8.dp),
     )
