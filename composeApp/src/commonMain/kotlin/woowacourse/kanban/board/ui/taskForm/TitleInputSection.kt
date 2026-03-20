@@ -51,7 +51,6 @@ private fun TitleInputPreview() {
 @Composable
 private fun TitleInputField(title: String, onTitleChange: (String) -> Unit, onErrorChange: (Boolean) -> Unit) {
     var isEmptyError by remember { mutableStateOf(false) }
-    var isFocused by remember { mutableStateOf(false) }
     val supportingText = if (isEmptyError) UiText.ERROR_TITLE_EMPTY_INPUT else ""
     OutlinedTextField(
         value = title,
@@ -69,8 +68,7 @@ private fun TitleInputField(title: String, onTitleChange: (String) -> Unit, onEr
         modifier = Modifier
             .fillMaxWidth()
             .onFocusChanged { focusState ->
-                isFocused = focusState.isFocused
-                isEmptyError = !isFocused && title.isEmpty()
+                isEmptyError = !focusState.isFocused && title.isEmpty()
                 onErrorChange(isEmptyError)
             },
         supportingText = {
