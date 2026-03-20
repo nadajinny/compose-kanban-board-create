@@ -83,7 +83,7 @@ fun KanbanColumnBodySection(bodyColor: Color, tasks: List<TaskCard>) {
             .fillMaxWidth()
             .fillMaxHeight()
             .background(bodyColor)
-            .padding(8.dp),
+            .padding(15.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         tasks.forEach {

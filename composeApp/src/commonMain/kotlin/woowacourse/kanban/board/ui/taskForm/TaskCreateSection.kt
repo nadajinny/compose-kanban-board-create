@@ -16,7 +16,10 @@ import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.model.Assignee
 
 @Composable
-fun TaskCreateSection(onDismiss: () -> Unit = {}) {
+fun TaskCreateSection(
+    onDismiss: () -> Unit = {},
+    onCreate: () -> Unit = {},
+) {
     val assignees = remember {
         listOf(
             Assignee("다이노"),
@@ -30,6 +33,7 @@ fun TaskCreateSection(onDismiss: () -> Unit = {}) {
     var isTagError by remember { mutableStateOf(false) }
     var description by remember { mutableStateOf("") }
     var assignee by remember { mutableStateOf(assignees.first()) }
+
 
     val isCreateEnabled = title.isNotBlank() && !isTitleError && !isTagError
 
@@ -63,10 +67,7 @@ fun TaskCreateSection(onDismiss: () -> Unit = {}) {
         TaskCreateBottomSection(
             isCreateEnabled = isCreateEnabled,
             onCancelClick = onDismiss,
-            onCreateClick = {
-
-                onDismiss()
-            },
+            onCreateClick = onCreate,
         )
     }
 }

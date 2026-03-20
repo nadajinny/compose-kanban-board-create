@@ -7,17 +7,22 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 import woowacourse.kanban.board.model.Status
 import woowacourse.kanban.board.model.TaskCard
 import woowacourse.kanban.board.ui.sample.TaskCardPreviewData
@@ -35,6 +40,8 @@ private fun KanbanBoardSectionPreview() {
 @Composable
 fun KanbanBoardSection(taskCards: List<TaskCard>) {
     var showDialog by remember { mutableStateOf(false) }
+    val snackBarHostState = remember { SnackbarHostState() }
+    val coroutineScope = rememberCoroutineScope()
 
     val totalCount = taskCards.size
     val doneCount = taskCards.count { it.status == Status.DONE }
@@ -72,8 +79,24 @@ fun KanbanBoardSection(taskCards: List<TaskCard>) {
             ) {
                 TaskCreateSection(
                     onDismiss = { showDialog = false },
+                    onCreate = {
+                        showDialog = false
+                        coroutineScope.launch {
+                            snackBarHostState.showSnackbar(
+                                message = "새 테스크가 생성되었습니다.",
+                                duration = SnackbarDuration.Short,
+                            )
+                        }
+                    },
                 )
             }
         }
+
+        SnackbarHost(
+            hostState = snackBarHostState,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth(),
+        )
     }
 }
