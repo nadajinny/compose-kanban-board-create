@@ -9,26 +9,23 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.runComposeUiTest
 import kotlin.test.Test
 import woowacourse.kanban.board.model.Assignee
-import woowacourse.kanban.board.model.Description
 import woowacourse.kanban.board.model.Tag
-import woowacourse.kanban.board.model.TagGroup
-import woowacourse.kanban.board.model.Title
 import woowacourse.kanban.board.ui.taskCard.TaskCardSection
 
 @OptIn(ExperimentalTestApi::class)
 class TaskCardSectionTest {
     @Test
     fun `태스크 카드는 제목을 표시한다`() = runComposeUiTest {
-        val title = Title("제목입니다")
-        val description = Description("설명입니다")
-        val tagGroup = TagGroup(emptyList())
+        val title = "제목입니다"
+        val description = "설명입니다"
+        val tags = Tag(emptyList())
         val assignee = Assignee("다이노")
 
         setContent {
             TaskCardSection(
                 title = title,
                 description = description,
-                tagGroup = tagGroup,
+                tags = tags,
                 assignee = assignee,
             )
         }
@@ -38,16 +35,16 @@ class TaskCardSectionTest {
 
     @Test
     fun `태스크 카드는 담당자를 표시한다`() = runComposeUiTest {
-        val title = Title("제목입니다")
-        val description = Description("설명입니다")
-        val tagGroup = TagGroup(emptyList())
+        val title = "제목입니다"
+        val description = "설명입니다"
+        val tags = Tag(emptyList())
         val assignee = Assignee("다이노")
 
         setContent {
             TaskCardSection(
                 title = title,
                 description = description,
-                tagGroup = tagGroup,
+                tags = tags,
                 assignee = assignee,
             )
         }
@@ -58,16 +55,16 @@ class TaskCardSectionTest {
 
     @Test
     fun `태스크 카드는 비어있지 않은 설명을 표시한다`() = runComposeUiTest {
-        val title = Title("제목입니다")
-        val description = Description("설명입니다")
-        val tagGroup = TagGroup(emptyList())
+        val title = "제목입니다"
+        val description = "설명입니다"
+        val tags = Tag(emptyList())
         val assignee = Assignee("다이노")
 
         setContent {
             TaskCardSection(
                 title = title,
                 description = description,
-                tagGroup = tagGroup,
+                tags = tags,
                 assignee = assignee,
             )
         }
@@ -77,16 +74,16 @@ class TaskCardSectionTest {
 
     @Test
     fun `태스크 카드는 비어있는 설명을 숨긴다`() = runComposeUiTest {
-        val title = Title("제목입니다")
-        val description = Description(" ")
-        val tagGroup = TagGroup(emptyList())
+        val title = "제목입니다"
+        val description = " "
+        val tags = Tag(emptyList())
         val assignee = Assignee("다이노")
 
         setContent {
             TaskCardSection(
                 title = title,
                 description = description,
-                tagGroup = tagGroup,
+                tags = tags,
                 assignee = assignee,
             )
         }
@@ -98,16 +95,16 @@ class TaskCardSectionTest {
 
     @Test
     fun `태스크 카드는 태그를 표시한다`() = runComposeUiTest {
-        val title = Title("제목입니다")
-        val description = Description("설명입니다")
-        val tagGroup = TagGroup(listOf(Tag("태그1"), Tag("태그2")))
+        val title = "제목입니다"
+        val description = "설명입니다"
+        val tags = Tag(listOf("태그1", "태그2"))
         val assignee = Assignee("다이노")
 
         setContent {
             TaskCardSection(
                 title = title,
                 description = description,
-                tagGroup = tagGroup,
+                tags = tags,
                 assignee = assignee,
             )
         }
@@ -118,16 +115,16 @@ class TaskCardSectionTest {
 
     @Test
     fun `태스크 카드는 제목, 설명, 태그, 담당자를 모두 표시한다`() = runComposeUiTest {
-        val title = Title("제목입니다")
-        val description = Description("설명입니다")
-        val tagGroup = TagGroup(listOf(Tag("태그1"), Tag("태그2")))
+        val title = "제목입니다"
+        val description = "설명입니다"
+        val tags = Tag(listOf("태그1", "태그2"))
         val assignee = Assignee("다이노")
 
         setContent {
             TaskCardSection(
                 title = title,
                 description = description,
-                tagGroup = tagGroup,
+                tags = tags,
                 assignee = assignee,
             )
         }

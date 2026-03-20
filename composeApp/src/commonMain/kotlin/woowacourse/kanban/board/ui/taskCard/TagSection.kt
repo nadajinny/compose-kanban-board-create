@@ -8,13 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import woowacourse.kanban.board.model.Tag
 import woowacourse.kanban.board.util.Font
 
 @Composable
-fun TagSection(tag: Tag) {
+fun TagSection(tag: String) {
     Text(
-        text = tag.text,
+        text = tag,
         style = Font.TAG,
         modifier = Modifier.background(Color(0xFFF3F4F6), RoundedCornerShape(10.dp)).padding(4.dp),
     )

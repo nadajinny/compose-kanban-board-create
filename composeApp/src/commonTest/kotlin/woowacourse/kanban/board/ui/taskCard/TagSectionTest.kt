@@ -6,13 +6,12 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.runComposeUiTest
 import kotlin.test.Test
-import woowacourse.kanban.board.model.Tag
 
 @OptIn(ExperimentalTestApi::class)
 class TagSectionTest {
     @Test
     fun `태그 뷰는 태그 텍스트를 표시한다`() = runComposeUiTest {
-        val tag = Tag("태그")
+        val tag = "태그"
 
         setContent {
             TagSection(tag = tag)
@@ -23,7 +22,7 @@ class TagSectionTest {
 
     @Test
     fun `태그 뷰는 여러 태그를 표시할 수 있다`() = runComposeUiTest {
-        val tags = listOf(Tag("1"), Tag("2"), Tag("3"))
+        val tags = listOf("1", "2", "3")
 
         setContent {
             Row {
@@ -40,7 +39,7 @@ class TagSectionTest {
 
     @Test
     fun `태그 뷰는 최대 길이 태그 텍스트를 표시한다`() = runComposeUiTest {
-        val tag = Tag("다섯글자다")
+        val tag = "다섯글자다"
 
         setContent {
             TagSection(tag = tag)

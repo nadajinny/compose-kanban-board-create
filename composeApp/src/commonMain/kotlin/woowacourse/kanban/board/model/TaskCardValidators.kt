@@ -3,9 +3,9 @@ package woowacourse.kanban.board.model
 import woowacourse.kanban.board.util.Text
 
 object TaskCardValidators {
-    fun validateTitle(text: String): Result<Title> {
+    fun validateTitle(text: String): Result<String> {
         return if (text.isNotBlank()) {
-            Result.success(Title(text))
+            Result.success(text)
         } else {
             Result.failure(IllegalArgumentException(Text.ERROR_TITLE_EMPTY))
         }
@@ -19,23 +19,17 @@ object TaskCardValidators {
         }
     }
 
-    fun validateTag(text: String): Result<Tag> {
+    fun validateTag(text: String): Result<String> {
         return when {
             text.isBlank() -> Result.failure(IllegalArgumentException(Text.ERROR_TAG_EMPTY))
             text.length > Tag.MAXIMUM_TAG_LENGTH -> Result.failure(
                 IllegalArgumentException(Text.errorTagTooLong(Tag.MAXIMUM_TAG_LENGTH)),
             )
-            else -> Result.success(Tag(text))
+            else -> Result.success(text)
         }
     }
 
-    fun validateTagGroup(tags: List<Tag>): Result<TagGroup> {
-        return if (tags.size <= TagGroup.MAXIMUM_TAG_COUNT) {
-            Result.success(TagGroup(tags))
-        } else {
-            Result.failure(
-                IllegalArgumentException(Text.errorTagCountExceeded(TagGroup.MAXIMUM_TAG_COUNT)),
-            )
-        }
+    fun validateTagGroup(tags: List<String>): Result<Tag> {
+        return runCatching { Tag(tags) }
     }
 }

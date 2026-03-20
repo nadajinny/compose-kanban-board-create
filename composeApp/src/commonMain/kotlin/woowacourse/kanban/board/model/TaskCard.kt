@@ -1,9 +1,15 @@
 package woowacourse.kanban.board.model
 
+import woowacourse.kanban.board.util.Text
+
 data class TaskCard(
-    val title: Title,
-    val description: Description,
+    val title: String,
+    val description: String,
     val status: Status,
-    val tags: TagGroup = TagGroup(emptyList()),
+    val tags: Tag = Tag(emptyList()),
     val assignee: Assignee,
-)
+) {
+    init {
+        require(title.isNotBlank()) { Text.ERROR_TITLE_EMPTY }
+    }
+}

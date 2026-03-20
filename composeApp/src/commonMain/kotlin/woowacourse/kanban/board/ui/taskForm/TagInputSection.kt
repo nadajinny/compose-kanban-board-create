@@ -21,6 +21,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import java.util.regex.Pattern
+import woowacourse.kanban.board.model.Tag
 import woowacourse.kanban.board.util.ColorPalette
 import woowacourse.kanban.board.util.Font
 import woowacourse.kanban.board.util.Text as UiText
@@ -62,7 +63,11 @@ private fun TagInputField(onTagsChange: (String) -> Unit, onErrorChange: (Boolea
 
     val isCountError = run {
         val splitTags = tags.split(",")
-        tags.isNotEmpty() && (splitTags.size > 5 || !splitTags.all { it.trim().length in 1..5 })
+        tags.isNotEmpty() &&
+            (
+                splitTags.size > Tag.MAXIMUM_TAG_COUNT ||
+                    !splitTags.all { it.trim().length in 1..Tag.MAXIMUM_TAG_LENGTH }
+                )
     }
 
     val supportingText = if (isFormError) {

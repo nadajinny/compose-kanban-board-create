@@ -14,23 +14,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.model.Assignee
-import woowacourse.kanban.board.model.Description
-import woowacourse.kanban.board.model.TagGroup
+import woowacourse.kanban.board.model.Tag
 import woowacourse.kanban.board.model.TaskCard
-import woowacourse.kanban.board.model.Title
 
 @Composable
 fun TaskCardSection(taskCard: TaskCard) {
     TaskCardSection(
         title = taskCard.title,
         description = taskCard.description,
-        tagGroup = taskCard.tags,
+        tags = taskCard.tags,
         assignee = taskCard.assignee,
     )
 }
 
 @Composable
-fun TaskCardSection(title: Title, description: Description, tagGroup: TagGroup, assignee: Assignee) {
+fun TaskCardSection(title: String, description: String, tags: Tag, assignee: Assignee) {
     Box(
         modifier = Modifier
             .border(
@@ -46,8 +44,8 @@ fun TaskCardSection(title: Title, description: Description, tagGroup: TagGroup, 
             if (!description.isBlank()) {
                 DescriptionSection(description = description)
             }
-            if (!tagGroup.isEmpty()) {
-                TagGroupSection(tagGroup = tagGroup)
+            if (!tags.isEmpty()) {
+                TagGroupSection(tags = tags)
             }
             HorizontalDivider(modifier = Modifier.background(Color.Gray))
             AssigneeSection(assignee = assignee)
