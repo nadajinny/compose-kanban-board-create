@@ -76,7 +76,7 @@ private fun TitleInputField(title: String, onTitleChange: (String) -> Unit, onEr
         supportingText = {
             Text(
                 text = supportingText,
-                style = Font.FORM_EXPLAIN
+                style = Font.FORM_EXPLAIN,
             )
         },
 

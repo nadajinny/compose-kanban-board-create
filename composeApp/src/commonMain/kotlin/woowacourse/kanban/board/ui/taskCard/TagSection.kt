@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import woowacourse.kanban.board.model.Tag
-import woowacourse.kanban.board.util.ColorPalette
 import woowacourse.kanban.board.util.Font
 
 @Composable

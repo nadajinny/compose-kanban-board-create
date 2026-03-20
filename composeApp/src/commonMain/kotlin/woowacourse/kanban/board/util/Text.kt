@@ -40,7 +40,7 @@ object Text {
     }
 
     fun statusLabel(status: Status): String {
-        return when(status) {
+        return when (status) {
             Status.TODO -> STATUS_TODO
             Status.INPROGRESS -> STATUS_IN_PROGRESS
             Status.DONE -> STATUS_DONE
