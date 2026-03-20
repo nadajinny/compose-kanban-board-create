@@ -22,6 +22,7 @@ import woowacourse.kanban.board.model.Status
 import woowacourse.kanban.board.model.TaskCard
 import woowacourse.kanban.board.ui.taskCard.TaskCardSection
 import woowacourse.kanban.board.util.ColorPalette
+import woowacourse.kanban.board.util.Text
 
 @Composable
 fun KanbanColumnSection(status: Status, tasks: List<TaskCard>) {
@@ -51,7 +52,6 @@ fun KanbanColumnSection(status: Status, tasks: List<TaskCard>) {
         )
     }
 }
-
 @Composable
 fun KanbanColumnHeaderSection(headerColor: Color, status: Status, tasks: List<TaskCard>) {
     Row(
@@ -62,7 +62,7 @@ fun KanbanColumnHeaderSection(headerColor: Color, status: Status, tasks: List<Ta
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         Text(
-            text = status.text,
+            text = Text.statusLabel(status),
             color = Color.White,
             fontWeight = FontWeight.Bold,
         )

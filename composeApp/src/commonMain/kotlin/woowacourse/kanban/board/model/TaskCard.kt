@@ -4,6 +4,6 @@ data class TaskCard(
     val title: String,
     val description: String = "",
     val status: Status,
-    val tags: List<Tag> = emptyList(),
+    val tags: TagGroup = TagGroup(emptyList()),
     val assignee: String,
 )

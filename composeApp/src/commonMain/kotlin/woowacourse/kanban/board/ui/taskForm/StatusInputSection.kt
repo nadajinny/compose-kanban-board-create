@@ -71,7 +71,7 @@ fun StatusField() {
                 padding = 8.dp,
             ) {
                 Text(
-                    text = it.text,
+                    text = UiText.statusLabel(it),
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
                     color = textColor,

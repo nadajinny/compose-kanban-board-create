@@ -1,6 +1,6 @@
 package woowacourse.kanban.board.model
 
-data class TagGroup(val tags: List<Tag>) {
+data class TagGroup(val tags: TagGroup) {
     fun isEmpty(): Boolean {
         return tags.isEmpty()
     }

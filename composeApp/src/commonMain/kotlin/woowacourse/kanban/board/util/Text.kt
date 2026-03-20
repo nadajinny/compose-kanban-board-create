@@ -1,5 +1,7 @@
 package woowacourse.kanban.board.util
 
+import woowacourse.kanban.board.model.Status
+
 object Text {
     const val LABEL_STATUS = "상태 *"
     const val LABEL_TITLE = "제목 *"
@@ -20,17 +22,14 @@ object Text {
     const val ACTION_CANCEL = "취소"
     const val ACTION_CREATE = "생성"
     const val ACTION_CLOSE = "닫기"
-
     const val CONTENT_USER_DEFAULT_IMAGE = "사용자 기본 이미지"
     const val CONTENT_ERROR = "error"
-
-    const val STATUS_TODO = "To Do"
-    const val STATUS_IN_PROGRESS = "In Progress"
-    const val STATUS_DONE = "Done"
-
     const val ERROR_TITLE_EMPTY = "[ERROR] 제목은 빈 값일 수 없습니다."
     const val ERROR_ASSIGNEE_EMPTY = "[ERROR] 담당자는 빈 값일 수 없습니다."
     const val ERROR_TAG_EMPTY = "[ERROR] 태그 텍스트는 빈 값일 수 없습니다."
+    const val STATUS_TODO = "To Do"
+    const val STATUS_IN_PROGRESS = "In Progress"
+    const val STATUS_DONE = "Done"
 
     fun errorTagTooLong(maxLength: Int): String {
         return "[ERROR] 태그 텍스트는 ${maxLength}글자 이하여야 합니다."
@@ -38,5 +37,13 @@ object Text {
 
     fun errorTagCountExceeded(maxCount: Int): String {
         return "[ERROR] 태그 개수는 ${maxCount}개 이하여야합니다."
+    }
+
+    fun statusLabel(status: Status): String {
+        return when(status) {
+            Status.TODO -> STATUS_TODO
+            Status.INPROGRESS -> STATUS_IN_PROGRESS
+            Status.DONE -> STATUS_DONE
+        }
     }
 }
