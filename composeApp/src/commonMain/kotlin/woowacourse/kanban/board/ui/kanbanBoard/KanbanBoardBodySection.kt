@@ -24,7 +24,7 @@ private fun KanbanBoardBodySectionPreview() {
 fun KanbanBoardBodySection(taskCards: List<TaskCard>) {
     Row(
         modifier = Modifier
-            .horizontalScroll(rememberScrollState())
+            .horizontalScroll(rememberScrollState()),
     ) {
         Status.entries.forEach { status ->
             val taskByStatus = tasksByStatus(taskCards, status)
