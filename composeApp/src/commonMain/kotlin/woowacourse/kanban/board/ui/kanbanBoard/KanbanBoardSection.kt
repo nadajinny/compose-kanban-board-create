@@ -43,8 +43,9 @@ fun KanbanBoardSection(taskCards: List<TaskCard>) {
     val snackBarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
 
-    val totalCount = taskCards.size
-    val doneCount = taskCards.count { it.status == Status.DONE }
+    val counts = calculateBoardCounts(taskCards)
+    val totalCount = counts.totalCount
+    val doneCount = counts.doneCount
 
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -98,4 +99,12 @@ fun KanbanBoardSection(taskCards: List<TaskCard>) {
                 .align(Alignment.BottomCenter),
         )
     }
+}
+
+internal data class BoardCounts(val totalCount: Int, val doneCount: Int)
+
+internal fun calculateBoardCounts(taskCards: List<TaskCard>): BoardCounts {
+    val totalCount = taskCards.size
+    val doneCount = taskCards.count { it.status == Status.DONE }
+    return BoardCounts(totalCount, doneCount)
 }
