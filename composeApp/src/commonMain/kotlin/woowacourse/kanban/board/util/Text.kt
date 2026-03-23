@@ -30,6 +30,10 @@ object Text {
     const val STATUS_TODO = "To Do"
     const val STATUS_IN_PROGRESS = "In Progress"
     const val STATUS_DONE = "Done"
+    const val KANBANBOARD_TITLE = "Compose Desktop 칸반 보드"
+    const val CREATE_NEW_TASK = "새 테스크 생성"
+
+    const val TOTAL_COUNT_IS_ZERO = "완료율 : 0% (0/0)"
 
     fun errorTagTooLong(maxLength: Int): String {
         return "[ERROR] 태그 텍스트는 ${maxLength}글자 이하여야 합니다."
@@ -37,6 +41,10 @@ object Text {
 
     fun errorTagCountExceeded(maxCount: Int): String {
         return "[ERROR] 태그 개수는 ${maxCount}개 이하여야합니다."
+    }
+
+    fun formatCompletionRate(doneCount: Int, totalCount: Int): String {
+        return "완료율 : ${(doneCount.toFloat() / totalCount * 100).toInt()}% ($doneCount/$totalCount)"
     }
 
     fun statusLabel(status: Status): String {

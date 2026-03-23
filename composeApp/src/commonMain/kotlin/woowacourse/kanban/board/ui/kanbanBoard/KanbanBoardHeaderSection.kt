@@ -29,6 +29,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import woowacourse.kanban.board.util.ColorPalette
+import woowacourse.kanban.board.util.Text
+import woowacourse.kanban.board.util.Text.formatCompletionRate
 
 @Preview(showBackground = true)
 @Composable
@@ -57,7 +59,7 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int, onCreateClick: () 
         ) {
             Column {
                 Text(
-                    text = "Compose Desktop 칸반 보드",
+                    text = Text.KANBANBOARD_TITLE,
                     style = TextStyle(
                         fontSize = 24.sp,
                         fontWeight = FontWeight.Bold,
@@ -77,10 +79,10 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int, onCreateClick: () 
             ) {
                 Icon(
                     imageVector = Icons.Filled.Add,
-                    contentDescription = "새 테스크 생성",
+                    contentDescription = Text.CREATE_NEW_TASK,
                     modifier = Modifier.size(20.dp),
                 )
-                Text("새 테스크 생성")
+                Text(Text.CREATE_NEW_TASK)
             }
         }
 
@@ -117,9 +119,9 @@ fun CustomLinearProgress(
 
 internal fun completionRateText(totalCount: Int, doneCount: Int): String {
     return if (totalCount == 0) {
-        "완료율 : 0% (0/0)"
+        Text.TOTAL_COUNT_IS_ZERO
     } else {
-        "완료율 : ${(doneCount.toFloat() / totalCount * 100).toInt()}% ($doneCount/$totalCount)"
+        formatCompletionRate(doneCount, totalCount)
     }
 }
 
