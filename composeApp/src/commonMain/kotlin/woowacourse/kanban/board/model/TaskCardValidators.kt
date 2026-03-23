@@ -1,5 +1,6 @@
 package woowacourse.kanban.board.model
 
+import woowacourse.kanban.board.util.ErrorMessage
 import woowacourse.kanban.board.util.Text
 
 object TaskCardValidators {
@@ -7,7 +8,7 @@ object TaskCardValidators {
         return if (text.isNotBlank()) {
             Result.success(text)
         } else {
-            Result.failure(IllegalArgumentException(Text.ERROR_TITLE_EMPTY))
+            Result.failure(IllegalArgumentException(ErrorMessage.TITLE_EMPTY))
         }
     }
 
@@ -15,15 +16,15 @@ object TaskCardValidators {
         return if (name.isNotBlank()) {
             Result.success(Assignee(name))
         } else {
-            Result.failure(IllegalArgumentException(Text.ERROR_ASSIGNEE_EMPTY))
+            Result.failure(IllegalArgumentException(ErrorMessage.ASSIGNEE_EMPTY))
         }
     }
 
     fun validateTag(text: String): Result<String> {
         return when {
-            text.isBlank() -> Result.failure(IllegalArgumentException(Text.ERROR_TAG_EMPTY))
+            text.isBlank() -> Result.failure(IllegalArgumentException(ErrorMessage.TAG_EMPTY))
             text.length > Tag.MAXIMUM_TAG_LENGTH -> Result.failure(
-                IllegalArgumentException(Text.errorTagTooLong(Tag.MAXIMUM_TAG_LENGTH)),
+                IllegalArgumentException(ErrorMessage.tagTooLong(Tag.MAXIMUM_TAG_LENGTH)),
             )
             else -> Result.success(text)
         }

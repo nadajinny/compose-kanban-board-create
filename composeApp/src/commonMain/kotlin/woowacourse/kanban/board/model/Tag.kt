@@ -1,16 +1,17 @@
 package woowacourse.kanban.board.model
 
+import woowacourse.kanban.board.util.ErrorMessage
 import woowacourse.kanban.board.util.Text
 
 data class Tag(val tags: List<String>) {
     init {
         require(tags.size <= MAXIMUM_TAG_COUNT) {
-            Text.errorTagCountExceeded(MAXIMUM_TAG_COUNT)
+            ErrorMessage.tagCountExceeded(MAXIMUM_TAG_COUNT)
         }
         if (tags.isNotEmpty()) {
-            require(tags.all { it.trim().isNotEmpty() }) { Text.ERROR_TAG_EMPTY }
+            require(tags.all { it.trim().isNotEmpty() }) { ErrorMessage.TAG_EMPTY }
             require(tags.all { it.trim().length <= MAXIMUM_TAG_LENGTH }) {
-                Text.errorTagTooLong(MAXIMUM_TAG_LENGTH)
+                ErrorMessage.tagTooLong(MAXIMUM_TAG_LENGTH)
             }
         }
     }
