@@ -1,7 +1,6 @@
 package woowacourse.kanban.board.model
 
 import woowacourse.kanban.board.util.ErrorMessage
-import woowacourse.kanban.board.util.Text
 
 data class TaskCard(
     val title: String,
