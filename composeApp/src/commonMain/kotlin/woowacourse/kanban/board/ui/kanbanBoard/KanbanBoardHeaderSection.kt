@@ -105,7 +105,7 @@ fun CustomLinearProgress(
         modifier = modifier
             .fillMaxWidth()
             .height(8.dp)
-            .clip(RoundedCornerShape(999.dp))
+            .clip(RoundedCornerShape(percent = 50))
             .background(trackColor),
     ) {
         Box(
