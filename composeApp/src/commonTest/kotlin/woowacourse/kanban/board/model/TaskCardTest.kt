@@ -1,5 +1,6 @@
 package woowacourse.kanban.board.model
 
+import woowacourse.kanban.board.fixture.TaskCardFixture
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -20,13 +21,7 @@ class TaskCardTest {
 
     @Test
     fun `정상 제목으로 TaskCard를 생성할 수 있다`() {
-        val taskCard = TaskCard(
-            title = "제목입니다",
-            description = "설명입니다",
-            status = Status.TODO,
-            tags = Tag(emptyList()),
-            assignee = Assignee("다이노"),
-        )
+        val taskCard = TaskCardFixture.create()
 
         assertEquals("제목입니다", taskCard.title)
     }
