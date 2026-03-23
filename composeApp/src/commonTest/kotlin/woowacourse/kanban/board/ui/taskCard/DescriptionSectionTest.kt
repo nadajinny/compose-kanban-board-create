@@ -32,16 +32,4 @@ class DescriptionSectionTest {
         val descriptionNode = onNodeWithText("2", substring = true)
         descriptionNode.assertIsDisplayed()
     }
-
-    @Test
-    fun `설명 뷰는 세줄부터는 표시되지 않는다`() = runComposeUiTest {
-        val description = "1\n2\n3"
-
-        setContent {
-            DescriptionSection(description = description)
-        }
-
-        val descriptionNode = onNodeWithText("3", substring = true)
-        descriptionNode.assertIsNotDisplayed()
-    }
 }

@@ -92,7 +92,7 @@ fun KanbanColumnBodySection(bodyColor: Color, tasks: List<TaskCard>) {
     }
 }
 
-private fun selectColor(status: Status): Triple<Color, Color, Color> {
+internal fun selectColor(status: Status): Triple<Color, Color, Color> {
     return when (status) {
         Status.TODO -> Triple(
             ColorPalette.BoxHeader.Todo,
