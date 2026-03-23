@@ -32,7 +32,7 @@ import woowacourse.kanban.board.util.ColorPalette
 
 @Preview(showBackground = true)
 @Composable
-fun KanbanBoardHeaderSectionPreview() {
+private fun KanbanBoardHeaderSectionPreview() {
     val totalCount = 5
     val doneCount = 2
     MaterialTheme {
@@ -64,11 +64,7 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int, onCreateClick: () 
                     ),
                 )
                 Text(
-                    text = if (totalCount == 0) {
-                        "완료율 : 0% (0/0)"
-                    } else {
-                        "완료율 : ${(doneCount.toFloat() / totalCount * 100).toInt()}% ($doneCount/$totalCount)"
-                    },
+                    text = completionRateText(totalCount, doneCount),
                 )
             }
 
@@ -91,7 +87,7 @@ fun KanbanBoardHeaderSection(totalCount: Int, doneCount: Int, onCreateClick: () 
         Spacer(modifier = Modifier.height(8.dp))
 
         CustomLinearProgress(
-            progress = if (totalCount == 0) 0f else doneCount.toFloat() / totalCount,
+            progress = completionProgress(totalCount, doneCount),
         )
     }
 }
@@ -117,4 +113,16 @@ fun CustomLinearProgress(
                 .background(progressColor),
         )
     }
+}
+
+internal fun completionRateText(totalCount: Int, doneCount: Int): String {
+    return if (totalCount == 0) {
+        "완료율 : 0% (0/0)"
+    } else {
+        "완료율 : ${(doneCount.toFloat() / totalCount * 100).toInt()}% ($doneCount/$totalCount)"
+    }
+}
+
+internal fun completionProgress(totalCount: Int, doneCount: Int): Float {
+    return if (totalCount == 0) 0f else doneCount.toFloat() / totalCount
 }
