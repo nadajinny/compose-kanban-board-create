@@ -23,6 +23,7 @@ import woowacourse.kanban.board.model.TaskCard
 import woowacourse.kanban.board.ui.common.KanbanDialog
 import woowacourse.kanban.board.ui.sample.TaskCardPreviewData
 import woowacourse.kanban.board.ui.taskForm.TaskCreateSection
+import woowacourse.kanban.board.util.Text
 
 @Preview(showBackground = true, widthDp = 1000, heightDp = 900)
 @Composable
@@ -69,7 +70,7 @@ fun KanbanBoardSection(taskCards: List<TaskCard>) {
                             showDialog = false
                             coroutineScope.launch {
                                 snackBarHostState.showSnackbar(
-                                    message = "새로운 테스크가 추가되었습니다.",
+                                    message = Text.ALARM_NEW_TASK,
                                     duration = SnackbarDuration.Short,
                                 )
                             }

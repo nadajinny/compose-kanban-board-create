@@ -29,6 +29,7 @@ object Text {
     const val STATUS_DONE = "Done"
     const val KANBANBOARD_TITLE = "Compose Desktop 칸반 보드"
     const val CREATE_NEW_TASK = "새 테스크 생성"
+    const val ALARM_NEW_TASK = "새로운 테스크가 추가되었습니다."
 
     const val TOTAL_COUNT_IS_ZERO = "완료율 : 0% (0/0)"
 
